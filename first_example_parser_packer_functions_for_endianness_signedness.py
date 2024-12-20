@@ -19,8 +19,8 @@ def parse_b2t_bms1(data):
         else:
             byte_order = "little"
         start_byte = start_bit // 8
-        end_bit = start_bit + length
-        end_byte = (end_bit - 1) // 8
+        end_bit = start_bit + length - 1
+        end_byte = end_bit // 8
         raw_value = int.from_bytes(data[start_byte:end_byte + 1], byte_order)
 
         # Adjust for bit alignment
